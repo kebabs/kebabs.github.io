@@ -1,0 +1,145 @@
+---
+---
+
+@import "{{ site.theme }}";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* FUNCTIONS */
+
+  /* Taken from: https://trulycode.com/bytes/sass-function-loop-headings-h1h2h3h4h5h6/ */
+    @function headings($from:1, $to:6) {
+      @if $from == $to {
+        @return 'h#{$from}';
+      } @else {
+        @return 'h#{$from},' + headings($from+1, $to);
+      }
+    }
+  /* END: Headings function */
+
+$main_background_color: #0a4261;
+$sub_background_color:  #3ba0d8;
+
+$color_grey:   #e3e3e3;
+$color_white:  #ffffff;
+$color_orange: #ff000e;
+
+$font_family_main: 'Open Sans', sans-serif;
+$font_family_sub:  'Roboto',    sans-serif;
+
+body {
+  background: $main_background_color;
+  background: linear-gradient(to left, $sub_background_color, $main_background_color);
+
+  color:       $color_grey;
+  font-family: $font_family_main;
+
+  padding: 0;
+
+  strong,
+  dt,
+  tr th,
+  code.highlighter-rouge,
+  a {
+    color: $color_white;
+  }
+
+  a {
+    &:hover, &:focus {
+      color: $color_grey;
+    }
+  }
+
+  section.content {
+    padding: 50px 0;
+  }
+
+  header {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 330px;
+
+    ul.social {
+      padding: 0;
+      margin:  0 0 20px 0;
+      background: transparent;
+      border-radius: 0;
+      border: none;
+      width: auto;
+      height: auto;
+
+      li {
+        float: none;
+        width: auto;
+        height: auto;
+        border-right: none;
+
+        display: inline;
+
+        a, a:hover, a:focus {
+          text-decoration: none;
+          display: inline-block;
+          height: 40px;
+          width:  40px;
+          font-size: 34px;
+          text-align: center;
+          line-height: 40px;
+        }
+
+        a {
+          padding: 0;
+          color: $color_white;
+
+          &:hover, &:focus {
+            color: $color_grey;
+          }
+
+          &:active {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  /* Pages */
+  &.experience {
+    section.content {
+
+      h2 {
+        margin-bottom: 0;
+      }
+
+      small {
+        color: $color_white;
+      }
+    }
+
+  }
+}
+
+#{headings(1,6)} {
+  color: $color_white;
+  font-family: $font_family_sub;
+}
+
+@media print, screen and (max-width: 960px) {
+  body {
+    padding: 30px;
+
+    header {
+      position: initial;
+      top: auto;
+      transform: none;
+      width: auto;
+
+      ul.social {
+        position: initial;
+        right: auto;
+        top: auto;
+      }
+    }
+
+  }
+}
