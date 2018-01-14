@@ -21,7 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://simonbrown.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 social:
-  github: https://github.com/kebsterine
+  github: https://github.com/keblamo
   linkedin: https://linkedin.com/in/simon-brown-b003408a
 
 # Build settings
